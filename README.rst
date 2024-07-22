@@ -1,9 +1,3 @@
-Template for the Read the Docs tutorial
-=======================================
+# Circuitscan ReadTheDocs site
 
-This GitHub template includes fictional Python library
-with some basic Sphinx docs.
-
-Read the tutorial here:
-
-https://docs.readthedocs.io/en/stable/tutorial/
+Information source for using and developing on Circuitscan
