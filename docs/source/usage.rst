@@ -10,7 +10,7 @@ To use the Circuitscan CLI, first install it using npm:
 
 .. code-block:: console
 
-$ npm install -g circuitscan
+    $ npm install -g circuitscan
 
 Verify a circuit verifier already deployed on chain
 ---------------------------------------------------
@@ -20,7 +20,7 @@ A circuit verifier is verified on Circuitscan by submitting its original source 
 Small differences in the Solidity sources are allowed:
 
 * Adding or removing newlines
-* The `errant hardhatc/console.sol include on PLONK verifiers <https://github.com/iden3/snarkjs/pull/464>` may be omitted
+* The `errant hardhatc/console.sol include on PLONK verifiers <https://github.com/iden3/snarkjs/pull/464>`_ may be omitted
 
 .. code-block:: console
 
@@ -73,5 +73,5 @@ In addition to helping with long running jobs or spotty internet connections, th
 More information
 ----------------
 
-`CLI Github Repository <https://github.com/circuitscan/cli>`_
+* `CLI Github Repository <https://github.com/circuitscan/cli>`_
 
