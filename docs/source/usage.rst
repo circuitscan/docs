@@ -70,7 +70,7 @@ Some circuits take a long time to compile and it may not be feasible to have you
 
 By taking note of the request ID output at the start of a deploy or verify command, you can close out of the process at any time before compilation completes and restart the process later.
 
-In addition to helping with long running jobs or spotty internet connections, this allows verifying the same circuverifier it accross multiple deployments without waiting for another compilation.
+In addition to helping with long running jobs or spotty internet connections, this allows verifying the same circuit verifier it accross multiple deployments without waiting for another compilation.
 
 More information
 ----------------
