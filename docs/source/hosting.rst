@@ -19,6 +19,10 @@ Circuitscan repositories provide all the necessary Cloudformation templates and 
 
 4. Instantiate the ``server-stack.yaml`` from the main ``circuitscan`` repository, pointing at your newly created repository. This will create the AWS Lambda function and output its invocation URL.
 
+    .. note::
+
+       The RecaptchaSecretKey parameter can be left blank to disable Google Recaptcha verification for API Key generation
+
 5. Create a second AWS ECR repo for the Circom compiler pipeline running in AWS Lambda. Update the ``deploy`` NPM script in the ``package.json`` of your local clone of the ``circom-lambda`` repository to correspond to your AWS CLI configuration and account number. Finally, run both ``yarn build`` and ``yarn deploy`` to push the Docker image of the Circom compiler pipeline to your new ECR repository.
 
 6. Instantiate the ``lambda-service.yaml`` from the ``circom-lambda`` repository, pointing at your newly created repository. This will create the AWS Lambda function and output its invocation URL.
