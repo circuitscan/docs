@@ -21,6 +21,7 @@ Small differences in the Solidity sources are allowed:
 
 * Adding or removing newlines
 * The `errant hardhatc/console.sol include on PLONK verifiers <https://github.com/iden3/snarkjs/pull/464>`_ may be omitted
+* Contract name
 
 .. code-block:: console
 
