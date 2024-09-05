@@ -12,7 +12,11 @@ To use the Circuitscan CLI, first install it using npm:
 
     $ npm install -g circuitscan
 
-Your API Key can be specified using the ``--api-key`` command line argument or the ``CIRCUITSCAN_API_KEY`` environment variable.
+API Key can be specified any of the following ways in order of precedence:
+
+1. Command line argument `-a` or `--api-key`
+2. `CIRCUITSCAN_API_KEY` environment variable
+3. `~/.circuitscan` JSON user configuration `{ "apiKey": "xxx" }`
 
 Verify a circuit verifier already deployed on chain
 ---------------------------------------------------
