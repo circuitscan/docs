@@ -12,6 +12,8 @@ To use the Circuitscan CLI, first install it using npm:
 
     $ npm install -g circuitscan
 
+Your API Key can be specified using the ``--api-key`` command line argument or the ``CIRCUITSCAN_API_KEY`` environment variable.
+
 Verify a circuit verifier already deployed on chain
 ---------------------------------------------------
 
@@ -37,6 +39,7 @@ Small differences in the Solidity sources are allowed:
       -i, --instance <memorySize>           Specify the memory (GB) of compiler instance: 4, 8, 16, 32, 64, 128, 256, 384, 512 (default: 10GB lambda, faster init for small circuits)
       -r, --resume <requestId>              In case of errors during compilation, reattach to a job and attempt a new verification. Overrides all other options.
       -c, --config <configUrl>              Specify a different configuration file (default: https://circuitscan.org/cli.json)
+      -a, --api-key <apiKey>                  Specify your API Key as a command line argument
       -h, --help                            display help for command
 
 Compile a circuit and deploy its circuit verifier on chain
@@ -62,6 +65,7 @@ Alternatively, the CLI can be used to compile and deploy the circuit verifier di
       -i, --instance <memorySize>           Specify the memory (GB) of compiler instance: 4, 8, 16, 32, 64, 128, 256, 384, 512 (default: 10GB lambda, faster init for small circuits)
       -r, --resume <requestId>              In case of errors during compilation, reattach to a job and attempt a new deploy. Overrides all other options.
       -c, --config <configUrl>              Specify a different configuration file (default: https://circuitscan.org/cli.json)
+      -a, --api-key <apiKey>                  Specify your API Key as a command line argument
       -h, --help                            display help for command
 
 Resuming from a build job
