@@ -14,9 +14,9 @@ To use the Circuitscan CLI, first install it using npm:
 
 API Key can be specified any of the following ways in order of precedence:
 
-1. Command line argument `-a` or `--api-key`
-2. `CIRCUITSCAN_API_KEY` environment variable
-3. `~/.circuitscan` JSON user configuration `{ "apiKey": "xxx" }`
+1. Command line argument ``-a`` or ``--api-key``
+2. ``CIRCUITSCAN_API_KEY`` environment variable
+3. ``~/.circuitscan`` JSON user configuration ``{ "apiKey": "xxx" }``
 
 Verify a circuit verifier already deployed on chain
 ---------------------------------------------------
@@ -55,7 +55,7 @@ Alternatively, the CLI can be used to compile and deploy the circuit verifier di
 
 .. note::
 
-   The DEPLOYER_PRIVATE_KEY environment variable must be set to use the deploy command unless the ``-b`` or ``--browser-wallet`` argument is used.
+   The ``DEPLOYER_PRIVATE_KEY`` environment variable must be set to use the deploy command unless the ``-b`` or ``--browser-wallet`` argument is used.
 
 .. code-block:: console
 
