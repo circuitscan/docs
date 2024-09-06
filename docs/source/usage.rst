@@ -23,6 +23,8 @@ Verify a circuit verifier already deployed on chain
 
 A circuit verifier is verified on Circuitscan by submitting its original source code along with all the compilation options. On Circuitscan's servers, the source is compiled into its R1CS, the appropriate PTAU file is downloaded, the final ZKey is verified on Groth16 verifiers with a second-phase trusted setup, and finally the Solidity verifier source is compared against what is retrieved for the contract address from the block explorer.
 
+Specify a final ZKey HTTPS URL from the `PSE P0tion DefinitelySetup website <https://ceremony.pse.dev>`_ for verified Groth16 Trusted Setup status.
+
 Small differences in the Solidity sources are allowed:
 
 * Adding or removing newlines
@@ -31,7 +33,7 @@ Small differences in the Solidity sources are allowed:
 
 .. code-block:: console
 
-    Usage: circuitscan verify [options] <mainCircomFile> <chainId> <verifierContractAddress>
+    Usage: circuitscan verify:circom [options] <mainCircomFile> <chainId> <verifierContractAddress>
 
     Verify verifier contracts by their circom sources. Can also specify chain by name.
 
@@ -53,11 +55,11 @@ Alternatively, the CLI can be used to compile and deploy the circuit verifier di
 
 .. note::
 
-   The DEPLOYER_PRIVATE_KEY environment variable must be set to use the deploy command. An option to use your browser wallet is coming soon...
+   The DEPLOYER_PRIVATE_KEY environment variable must be set to use the deploy command unless the ``-b`` or ``--browser-wallet`` argument is used.
 
 .. code-block:: console
 
-   Usage: circuitscan deploy [options] <mainCircomFile> <chainId>
+   Usage: circuitscan deploy:circom [options] <mainCircomFile> <chainId>
 
     Deploy verifier contract by their circom sources. Can also specify chain by name.
 
@@ -70,6 +72,7 @@ Alternatively, the CLI can be used to compile and deploy the circuit verifier di
       -r, --resume <requestId>              In case of errors during compilation, reattach to a job and attempt a new deploy. Overrides all other options.
       -c, --config <configUrl>              Specify a different configuration file (default: https://circuitscan.org/cli.json)
       -a, --api-key <apiKey>                  Specify your API Key as a command line argument
+      -b, --browser-wallet                    Send transaction in browser instead of by passing private key env var (overrides passed chainId)
       -h, --help                            display help for command
 
 Resuming from a build job
