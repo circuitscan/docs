@@ -40,6 +40,7 @@ Small differences in the Solidity sources are allowed:
     Options:
       -p, --protocol <protocol>             Specify the protocol: groth16 (default), fflonk, plonk (overrides circomkit.json if available)
       -k, --proving-key <provingKey>        Specify the proving key filename or url (optional, for Groth16 trusted setups). Must be https hosted if >6 MB
+      -t, --ptau <ptauSize>                   Force a specific Powers of Tau size (8-28)
       -v, --circom-version <circomVersion>  Specify the Circom version (e.g. "v2.1.8")
       -s, --snarkjs-version <snarkjsVersion>  Specify the SnarkJS version (e.g. "0.7.3")
       -i, --instance <memorySize>           Specify the memory (GB) of compiler instance: 4, 8, 16, 32, 64, 128, 256, 384, 512 (default: 10GB lambda, faster init for small circuits)
@@ -66,6 +67,7 @@ Alternatively, the CLI can be used to compile and deploy the circuit verifier di
     Options:
       -p, --protocol <protocol>             Specify the protocol: groth16 (default), fflonk, plonk (overrides circomkit.json if available)
       -k, --proving-key <provingKey>        Specify the proving key filename or url (optional, for Groth16 trusted setups). Must be https hosted if >6 MB
+      -t, --ptau <ptauSize>                   Force a specific Powers of Tau size (8-28)
       -v, --circom-version <circomVersion>  Specify the Circom version (e.g. "v2.1.8")
       -s, --snarkjs-version <snarkjsVersion>  Specify the SnarkJS version (e.g. "0.7.3")
       -i, --instance <memorySize>           Specify the memory (GB) of compiler instance: 4, 8, 16, 32, 64, 128, 256, 384, 512 (default: 10GB lambda, faster init for small circuits)
