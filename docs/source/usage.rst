@@ -25,6 +25,8 @@ A circuit verifier is verified on Circuitscan by submitting its original source 
 
 Specify a final ZKey HTTPS URL from the `PSE P0tion DefinitelySetup website <https://ceremony.pse.dev>`_ for verified Groth16 Trusted Setup status.
 
+By default, PTAU files are loaded from the zkEVM/Hermez trusted setup but you may specify other PTAU files like those used from `PSE P0tion PPoT Trusted Setup Ceremony <https://github.com/privacy-scaling-explorations/p0tion/blob/dev/packages/actions/src/helpers/constants.ts#L80>`_.
+
 Small differences in the Solidity sources are allowed:
 
 * Adding or removing newlines
@@ -40,7 +42,7 @@ Small differences in the Solidity sources are allowed:
     Options:
       -p, --protocol <protocol>             Specify the protocol: groth16 (default), fflonk, plonk (overrides circomkit.json if available)
       -k, --proving-key <provingKey>        Specify the proving key filename or url (optional, for Groth16 trusted setups). Must be https hosted if >6 MB
-      -t, --ptau <ptauSize>                   Force a specific Powers of Tau size (8-28)
+      -t, --ptau <ptauSize>                   Force a specific Powers of Tau size (8-28 or url to download specific file)
       -v, --circom-version <circomVersion>  Specify the Circom version (e.g. "v2.1.8")
       -s, --snarkjs-version <snarkjsVersion>  Specify the SnarkJS version (e.g. "0.7.3")
       -i, --instance <memorySize>           Specify the memory (GB) of compiler instance: 4, 8, 16, 32, 64, 128, 256, 384, 512 (default: 10GB lambda, faster init for small circuits)
@@ -67,7 +69,7 @@ Alternatively, the CLI can be used to compile and deploy the circuit verifier di
     Options:
       -p, --protocol <protocol>             Specify the protocol: groth16 (default), fflonk, plonk (overrides circomkit.json if available)
       -k, --proving-key <provingKey>        Specify the proving key filename or url (optional, for Groth16 trusted setups). Must be https hosted if >6 MB
-      -t, --ptau <ptauSize>                   Force a specific Powers of Tau size (8-28)
+      -t, --ptau <ptauSize>                   Force a specific Powers of Tau size (8-28 or url to download specific file)
       -v, --circom-version <circomVersion>  Specify the Circom version (e.g. "v2.1.8")
       -s, --snarkjs-version <snarkjsVersion>  Specify the SnarkJS version (e.g. "0.7.3")
       -i, --instance <memorySize>           Specify the memory (GB) of compiler instance: 4, 8, 16, 32, 64, 128, 256, 384, 512 (default: 10GB lambda, faster init for small circuits)
