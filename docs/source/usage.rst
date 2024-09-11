@@ -45,7 +45,7 @@ Small differences in the Solidity sources are allowed:
       -t, --ptau <ptauSize>                   Force a specific Powers of Tau size (8-28 or url to download specific file)
       -v, --circom-version <circomVersion>  Specify the Circom version (e.g. "v2.1.8")
       -s, --snarkjs-version <snarkjsVersion>  Specify the SnarkJS version (e.g. "0.7.3")
-      -i, --instance <memorySize>           Specify the memory (GB) of compiler instance: 4, 8, 16, 32, 64, 128, 256, 384, 512 (default: 10GB lambda, faster init for small circuits)
+      -i, --instance <memorySize>           Specify the memory (GB) of compiler instance: 4, 8, 16, 32, 64, 128, 256, 384, 512 (default: 4 for smallest circuits)
       -r, --resume <requestId>              In case of errors during compilation, reattach to a job and attempt a new verification. Overrides all other options.
       -c, --config <configUrl>              Specify a different configuration file (default: https://circuitscan.org/cli.json)
       -a, --api-key <apiKey>                  Specify your API Key as a command line argument
@@ -72,7 +72,7 @@ Alternatively, the CLI can be used to compile and deploy the circuit verifier di
       -t, --ptau <ptauSize>                   Force a specific Powers of Tau size (8-28 or url to download specific file)
       -v, --circom-version <circomVersion>  Specify the Circom version (e.g. "v2.1.8")
       -s, --snarkjs-version <snarkjsVersion>  Specify the SnarkJS version (e.g. "0.7.3")
-      -i, --instance <memorySize>           Specify the memory (GB) of compiler instance: 4, 8, 16, 32, 64, 128, 256, 384, 512 (default: 10GB lambda, faster init for small circuits)
+      -i, --instance <memorySize>           Specify the memory (GB) of compiler instance: 4, 8, 16, 32, 64, 128, 256, 384, 512 (default: 4 for smallest circuits)
       -r, --resume <requestId>              In case of errors during compilation, reattach to a job and attempt a new deploy. Overrides all other options.
       -c, --config <configUrl>              Specify a different configuration file (default: https://circuitscan.org/cli.json)
       -a, --api-key <apiKey>                  Specify your API Key as a command line argument
