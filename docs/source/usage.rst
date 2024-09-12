@@ -178,6 +178,8 @@ In addition to helping with long running jobs or spotty internet connections, th
 
 This argument may also be used to re-use a compilation output if the wrong chain/contract address is passed without waiting to compile again.
 
+Request IDs are stored in ``~/.circuitscan-history`` for easy recovery from errors.
+
 ``-c``, ``--config``
 ^^^^^^^^^^^^^^^^^^^^
 
