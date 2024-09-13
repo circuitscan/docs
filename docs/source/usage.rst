@@ -59,11 +59,11 @@ Alternatively, the CLI can be used to compile and deploy the circuit verifier di
 
 .. note::
 
-   The ``DEPLOYER_PRIVATE_KEY`` environment variable must be set to use the deploy command unless the ``-b`` or ``--browser-wallet`` argument is used.
+   The ``DEPLOYER_PRIVATE_KEY`` environment variable and ``chainId`` argument must be set to use the deploy command unless the ``-b`` or ``--browser-wallet`` argument is used.
 
 .. code-block:: console
 
-   Usage: circuitscan deploy:circom [options] <mainCircomFile> <chainId>
+   Usage: circuitscan deploy:circom [options] <mainCircomFile> [chainId]
 
     Deploy verifier contract by their circom sources. Can also specify chain by name.
 
@@ -77,7 +77,7 @@ Alternatively, the CLI can be used to compile and deploy the circuit verifier di
       -r, --resume <requestId>              In case of errors during compilation, reattach to a job and attempt a new deploy. Overrides all other options.
       -c, --config <configUrl>              Specify a different configuration file (default: https://circuitscan.org/cli.json)
       -a, --api-key <apiKey>                  Specify your API Key as a command line argument
-      -b, --browser-wallet                    Send transaction in browser instead of by passing private key env var (overrides passed chainId)
+      -b, --browser-wallet                    Send transaction in browser instead of by passing private key env var (overrides chainId argument)
       -h, --help                            display help for command
 
 Command Line Arguments
@@ -190,7 +190,7 @@ There is no reason to use this argument when verifying or deploying circuits to 
 ``-a``, ``--api-key``
 ^^^^^^^^^^^^^^^^^^^^^
 
-Overrides API key settings from either the `CIRCUITSCAN_API_KEY` environment variable, or the `~/.circuitscan` JSON user configuration.
+Overrides API key settings from either the ``CIRCUITSCAN_API_KEY`` environment variable, or the ``~/.circuitscan`` JSON user configuration.
 
 ``-b``, ``--browser-wallet``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
