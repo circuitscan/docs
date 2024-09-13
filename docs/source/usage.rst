@@ -232,6 +232,28 @@ Other primes require specifying a PTAU file that matches that prime.
 
 The protocol may also be specified here instead of by CLI argument.
 
+Verification Errors
+-------------------
+
+``invalid_diff``
+^^^^^^^^^^^^^^^^
+
+The generated Solidity verifier contract does not match the source code retrieved from the block explorer
+
+Find the generated source at ``https://circuitscan-artifacts.s3.us-west-2.amazonaws.com/build/<build-name-adjective-animal>/verifier.sol``
+
+``contract_not_verified``
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The contract at this address on the specified is not verified on Sourcify/Blockscout/Etherscan.
+
+Please submit the source to `Sourcify.dev <https://sourcify.dev>`_
+
+``invalid_finalZkey``
+^^^^^^^^^^^^^^^^^^^^^^
+
+The final zkey/proving key you specified does not match the r1cs/ptau.
+
 More information
 ----------------
 

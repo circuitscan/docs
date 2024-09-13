@@ -65,3 +65,9 @@ The proof generator provides an input template filled with 1 for every possible 
 After successful proof generation, the proof is verified against the deployed verifier contract using an RPC call to the blockchain node. A message will appear at the top of the page confirming whether the proof verified on chain or not.
 
 The proof and public signals will be output on screen for your own use.
+
+.. note::
+
+   The proof will only validate successfully on chain in the proof generator if the deployed contract is an unmodified contract from the SnarkJS output.
+
+   If the contract is not a simple verifier output from the SnarkJS template, you may have to copy the proof data displayed on screen into a different function exposed by the contract.
