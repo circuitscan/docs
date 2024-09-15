@@ -27,11 +27,11 @@ A circuit verifier is verified on Circuitscan by submitting its original source 
 
 Small differences in the Solidity sources are allowed:
 
-* Adding or removing newlines
 * The `errant hardhatc/console.sol include on PLONK verifiers <https://github.com/iden3/snarkjs/pull/464>`_ may be omitted
 * Contract name
-* *Coming Soon* ``pragma solidity`` version differences
-* *Coming Soon* Comment differences
+* ``pragma solidity`` version differences
+* Comment differences
+* Whitespace differences
 * *Coming Soon* Multi-verifiers a la Semaphore V4
 
 .. code-block:: console
