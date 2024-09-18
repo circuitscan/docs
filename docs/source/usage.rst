@@ -80,6 +80,96 @@ Alternatively, the CLI can be used to compile and deploy the circuit verifier di
       -b, --browser-wallet                    Send transaction in browser instead of by passing private key env var (overrides chainId argument)
       -h, --help                            display help for command
 
+Verify a multi-verifier already deployed on chain
+-------------------------------------------------
+
+Circuitscan also supports combining multiple Groth16 verifiers into one verification contract.
+
+This is inspired by `Semaphore V4 <https://semaphore.pse.dev/>`_ and is supported using the `snarkjs-groth16-multi-verifier NPM package <https://github.com/circuitscan/snarkjs-groth16-multi-verifier/>`_.
+
+All of the individual verifiers must be verified already on Circuitscan, then you must craft a JSON file containing all of the verifiers in order of their inclusion.
+
+.. code-block:: console
+
+    Usage: circuitscan verify:circom-multi [options] <jsonFile>
+
+    Verify a Groth16 multi-verifier using a JSON specification. See docs website for details.
+
+    Options:
+      -c, --config <configUrl>  Specify a different configuration file (default: https://circuitscan.org/cli.json)
+      -h, --help                display help for command
+
+The following example JSON describes Semaphore V4 deployed on Sepolia:
+
+.. code-block:: console
+
+    {
+      "verifiers": [
+        { "chainId": 17000, "address": "0xf24a641276ca49e9984124ddf52df4b0d40e63a3" },
+        { "chainId": 17000, "address": "0x467d5a506f0dcfbffaa403656ed1cc1477d657eb" },
+        { "chainId": 17000, "address": "0x3e950933555243561f28da3c6a0a515639fe7026" },
+        { "chainId": 17000, "address": "0xc174d9b265bf99c5aef393c44a18c9703bef1fa1" },
+        { "chainId": 17000, "address": "0x7e5e5cbf5533a22ba58b1c7d7a0ad015c2278eac" },
+        { "chainId": 17000, "address": "0x8a8817162b13f1856b6ba4d52abade5428b262f0" },
+        { "chainId": 17000, "address": "0xebc1535fe0816c8ee6dbd2474b0ad51934bbe030" },
+        { "chainId": 17000, "address": "0xa9bced3e075025dd3751c6cef5e349fbb0278acb" },
+        { "chainId": 17000, "address": "0x39374372f3ca97b800e47f747c2fb26440609d13" },
+        { "chainId": 17000, "address": "0xfdcfd9f5fc0be0e5f93710bd3d53b6a32fe1f580" },
+        { "chainId": 17000, "address": "0x7902dadca10ddda38b768b68a6082f152081d5b3" },
+        { "chainId": 17000, "address": "0x56e23ddc0ab53aea6447e8f08eafa9607f483f53" },
+        { "chainId": 17000, "address": "0x94e1698410614dab6fd34a14ed06d6b6b2cdefd1" },
+        { "chainId": 17000, "address": "0xfc05984d8aa48f4c334ee5eac92f408becf4a867" },
+        { "chainId": 17000, "address": "0x9e0f76dd17518b1b4cbae2472bf3d549e469034c" },
+        { "chainId": 17000, "address": "0x1fef2d460156d914bf5fb1569d9678979cd42a82" },
+        { "chainId": 17000, "address": "0x26f56a11ac9bd2f4a243b03e8875f5b797b07af8" },
+        { "chainId": 17000, "address": "0x72feeb885599c74fe041c582c3da3e14214cf106" },
+        { "chainId": 17000, "address": "0x3c2ca19e80428f7e19808859483a08cf07476722" },
+        { "chainId": 17000, "address": "0x445e9b1b1f0feafad68608d1def398bad3e69018" },
+        { "chainId": 17000, "address": "0x3df122cdfcced4b07990f38a2e2cc992a942af31" },
+        { "chainId": 17000, "address": "0xdccf1079fa92acd45ab3e30637aa84c4e36ea21e" },
+        { "chainId": 17000, "address": "0x5dccc38aa2752ac3e09ead06d51285736b3c1096" },
+        { "chainId": 17000, "address": "0xce3f1fd94ab9760b24cf06bf128b86b8926f7b74" },
+        { "chainId": 17000, "address": "0xb75859fe64e04bdabe93eed006f925a1089694f1" },
+        { "chainId": 17000, "address": "0xad8ff16a45f41151415a0680d0a26fd856402bce" },
+        { "chainId": 17000, "address": "0xa23905de7bafac05d3e7028c6d87538445da8b43" },
+        { "chainId": 17000, "address": "0xe0b9a7bd7e0746791874d7535afb9271b03e259e" },
+        { "chainId": 17000, "address": "0x990f37c12e2138aaefc05089b50459c870739825" },
+        { "chainId": 17000, "address": "0xbd0feed838293123b27d329dca5e1610698afd4c" },
+        { "chainId": 17000, "address": "0xe516cc1ce72ae1124c277b92755bdceebe745f75" },
+        { "chainId": 17000, "address": "0x25cd28fca2474604e2bc1bbc835071de739b6bcf" }
+      ],
+      "offset": 1,
+      "deployed": {
+        "chainId": 11155111,
+        "address": "0xe538f9DeeE04A397decb1E7dc5D16fD6f123c043"
+      },
+      "modifier": "semaphorev4"
+    }
+
+``verifiers``
+^^^^^^^^^^^^^
+
+*Required* An array of at least two verifiers already verified on Circuitscan
+
+``offset``
+^^^^^^^^^^
+
+*Required* The starting index of the first verifier for the new argument added to the the contract's ``verifyProof()`` function
+
+``deployed``
+^^^^^^^^^^^^
+
+*Required* The address and chain of the deployed multi-verifier contract
+
+``modifier``
+^^^^^^^^^^^^
+
+*Optional* To account for greater variation in deployed multi-verifiers, Circuitscan supports additional modifications to the Solidity source code.
+
+Available modifiers: ``semaphorev4``
+
+Submit new modifiers as PRs to this directory: `circuitscan/server/modifiers <https://github.com/circuitscan/circuitscan/tree/main/server/modifiers>`_
+
 Command Line Arguments
 ----------------------
 
