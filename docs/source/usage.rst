@@ -32,7 +32,6 @@ Small differences in the Solidity sources are allowed:
 * ``pragma solidity`` version differences
 * Comment differences
 * Whitespace differences
-* *Coming Soon* Multi-verifiers a la Semaphore V4
 
 .. code-block:: console
 
