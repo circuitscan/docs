@@ -60,7 +60,7 @@ In-Browser Proof Generator
 
 On each circuit details page, Circuitscan offers an in-browser proof generator that loads the final zkey and WASM proof generator from this build artifacts zip and calculates proofs using your local machine. Your data is never sent to Circuitscan or any third-parties.
 
-The proof generator provides an input template filled with 1 for every possible input signal. Customize the values to fit your witness.
+The proof generator provides an input template filled with 1 for every possible input signal. Customize the values to fit your input.
 
 After successful proof generation, the proof is verified against the deployed verifier contract using an RPC call to the blockchain node. A message will appear at the top of the page confirming whether the proof verified on chain or not.
 

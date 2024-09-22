@@ -25,3 +25,4 @@ Contents
    build-artifacts
    hosting
    community-support
+   additional-tools
