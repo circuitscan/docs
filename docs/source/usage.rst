@@ -20,8 +20,8 @@ API Key can be specified any of the following ways in order of precedence:
 2. ``CIRCUITSCAN_API_KEY`` environment variable
 3. ``~/.circuitscan`` JSON user configuration ``{ "apiKey": "xxx" }``
 
-Verify a circuit verifier already deployed on chain
----------------------------------------------------
+Verify a Circom/SnarkJS circuit verifier already deployed on chain
+------------------------------------------------------------------
 
 A circuit verifier is verified on Circuitscan by submitting its original source code along with all the compilation options. On Circuitscan's servers, the source is compiled into its R1CS, the appropriate PTAU file is downloaded, the final ZKey is verified on Groth16 verifiers with a second-phase trusted setup, and finally the Solidity verifier source is compared against what is retrieved for the contract address from the block explorer.
 
@@ -51,8 +51,8 @@ Small differences in the Solidity sources are allowed:
       -a, --api-key <apiKey>                  Specify your API Key as a command line argument
       -h, --help                            display help for command
 
-Compile a circuit and deploy its circuit verifier on chain
-----------------------------------------------------------
+Compile a Circom circuit and deploy its circuit verifier on chain
+-----------------------------------------------------------------
 
 Alternatively, the CLI can be used to compile and deploy the circuit verifier directly from source, ensuring that the verification happens smoothly.
 
@@ -79,8 +79,8 @@ Alternatively, the CLI can be used to compile and deploy the circuit verifier di
       -b, --browser-wallet                    Send transaction in browser instead of by passing private key env var (overrides chainId argument)
       -h, --help                            display help for command
 
-Verify a multi-verifier already deployed on chain
--------------------------------------------------
+Verify a Circom Groth16 multi-verifier already deployed on chain
+----------------------------------------------------------------
 
 Circuitscan also supports combining multiple Groth16 verifiers into one verification contract.
 
@@ -169,6 +169,59 @@ Available modifiers: ``semaphorev4``
 
 Submit new modifiers as PRs to this directory: `circuitscan/server/modifiers <https://github.com/circuitscan/circuitscan/tree/main/server/modifiers>`_
 
+Verify a Noir/Barretenberg circuit verifier already deployed on chain
+---------------------------------------------------------------------
+
+If the ``packageDir`` argument is ommitted, the current directory will be used.
+
+Small differences in the Solidity sources are allowed:
+
+* Contract name
+* ``pragma solidity`` version differences
+* Comment differences
+* Whitespace differences
+* ``verificationKeyHash`` view function return value
+
+.. code-block:: console
+
+    Usage: circuitscan verify:noir [options] <chainId> <verifierContractAddress> [packageDir]
+
+    Verify verifier contracts by their noir sources. Can also specify chain by name.
+
+    Options:
+      -v, --nargo-version <version>  Specify nargo version
+      -i, --instance <memorySize>    Specify the memory (GB) of compiler instance: 4, 8, 16, 32, 64, 128, 256, 384, 512 (default: 4 for smallest circuits)
+      -r, --resume <requestId>       In case of errors during compilation, reattach to a job and attempt a new deploy. Overrides all other options.
+      -c, --config <configUrl>       Specify a different configuration file (default: https://circuitscan.org/cli.json)
+      -a, --api-key <apiKey>         Specify your API Key as a command line argument
+      -h, --help                     display help for command
+
+Compile a Noir circuit and deploy its circuit verifier on chain
+---------------------------------------------------------------
+
+Alternatively, the CLI can be used to compile and deploy the circuit verifier directly from source, ensuring that the verification happens smoothly.
+
+.. note::
+
+   The ``DEPLOYER_PRIVATE_KEY`` environment variable and ``chainId`` argument must be set to use the deploy command unless the ``-b`` or ``--browser-wallet`` argument is used.
+
+If the ``packageDir`` argument is ommitted, the current directory will be used.
+
+.. code-block:: console
+
+   Usage: circuitscan deploy:noir [options] <chainId> [packageDir]
+
+    Deploy verifier contracts by their noir sources. Can also specify chain by name.
+
+    Options:
+      -v, --nargo-version <version>  Specify nargo version
+      -i, --instance <memorySize>    Specify the memory (GB) of compiler instance: 4, 8, 16, 32, 64, 128, 256, 384, 512 (default: 4 for smallest circuits)
+      -r, --resume <requestId>       In case of errors during compilation, reattach to a job and attempt a new deploy. Overrides all other options.
+      -c, --config <configUrl>       Specify a different configuration file (default: https://circuitscan.org/cli.json)
+      -a, --api-key <apiKey>         Specify your API Key as a command line argument
+      -b, --browser-wallet           Send transaction in browser instead of by passing private key env var (overrides chainId argument)
+      -h, --help                     display help for command
+
 Command Line Arguments
 ----------------------
 
@@ -210,6 +263,18 @@ If passing a number between 8 and 28, the specific Ptau file from the hermez cer
 Otherwise, pass an https url for the Ptau file you would like to use.
 
 Another commonly used Ptau ceremony is the `PSE P0tion PPoT Trusted Setup Ceremony <https://github.com/privacy-scaling-explorations/p0tion/blob/dev/packages/actions/src/helpers/constants.ts#L80>`_. Pass one of these urls if using P0tion for the second-phase trusted setup.
+
+``-v``, ``--nargo-version``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Pass the version of Nargo to use. The corresponding Barretenberg version will also be used.
+
+Allowed values: (Barretenberg version)
+
+* ``0.34.0`` (``0.55.0``)
+* ``0.33.0`` (``0.47.1``) (Default)
+* ``0.32.0`` (``0.46.1``)
+* ``0.31.0`` (``0.41.0``)
 
 ``-v``, ``--circom-version``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
