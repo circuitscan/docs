@@ -71,3 +71,9 @@ The proof and public signals will be output on screen for your own use.
    The proof will only validate successfully on chain in the proof generator if the deployed contract is an unmodified contract from the SnarkJS output.
 
    If the contract is not a simple verifier output from the SnarkJS template, you may have to copy the proof data displayed on screen into a different function exposed by the contract.
+
+.. note::
+
+   Proof generation for Noir circuits is still under construction!
+
+   As a workaround, download the build zip and generate proofs on your local machine using the `Noir command line tools <https://noir-lang.org/docs/getting_started/hello_noir/#proving-backend>`_.
