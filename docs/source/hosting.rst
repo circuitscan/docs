@@ -27,7 +27,7 @@ Circuitscan repositories provide all the necessary Cloudformation templates and 
 
 6. Upload an SSH public key to your AWS EC2 console so that you can access running instances to debug if necessary.
 
-7. Instantiate ``instance-service.yaml``, pointing the ``CloneUrls`` parameter at your fork of the `circom-pipeline repository <https://github.com/circuitscan/circom-pipeline>`_ if making changes to the Circom compiler pipeline. For each invocation, this repo will be cloned in the new EC2 instance performing the compilation.
+7. Instantiate ``instance-service.yaml``, pointing the ``CloneUrls`` parameter at the repositories you wish to allow as compilation pipelines. For each invocation, this repo will be cloned in the new EC2 instance performing the compilation. See the `Circuitscan pipeline runner <https://github.com/circuitscan/circuitscan-pipeline-runner>`_ for more information.
 
 8. Update ``public/cli.json`` with the URLs output by your CloudFormation stacks.
 

@@ -10,4 +10,4 @@ Open source contributions
 
 Circuitscan is free software under MIT license. Contributions are welcome.
 
-Whether you would like to implement another circuit language (e.g. Noir), add more information to the docs, or anything in between, feel free to submit a PR or make contact in `Telegram <https://t.me/circuitscan>`_ or by email to `info@circuitscan.org <mailto:info@circuitscan.org>`_.
+Whether you would like to implement another circuit language, add more information to the docs, or anything in between, feel free to submit a PR or make contact in `Telegram <https://t.me/circuitscan>`_ or by email to `info@circuitscan.org <mailto:info@circuitscan.org>`_.
