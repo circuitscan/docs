@@ -199,6 +199,7 @@ Pass the version of the Circom compiler to use.
 
 Allowed values:
 
+* ``v2.2.0``
 * ``v2.1.9``
 * ``v2.1.8`` (Default)
 * ``v2.1.7``
