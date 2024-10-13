@@ -32,6 +32,35 @@ Small differences in the Solidity sources are allowed:
       -a, --api-key <apiKey>                  Specify your API Key as a command line argument
       -h, --help                            display help for command
 
+Verification Checklist
+^^^^^^^^^^^^^^^^^^^^^^
+
+1. Locate the Circom source file with the main component
+
+    (e.g. ``circuit/multiplier.circom``)
+2. If the verifier uses Groth16, locate the proving key (final zkey) and, if necessary, upload it to a server where it can be accessed using an HTTPS URL.
+
+    (e.g. ``https://example.com/multiplier.zkey``)
+
+    Specifying this is not necessary for Plonk or Fflonk verifiers.
+3. Ensure the verifier contract has been verified on `Sourcify <https://sourcify.dev>`_ or Etherscan
+4. Determine the Circom and SnarkJS versions that were used to compile the circuit and generate the verifier contract
+5. Select an instance size by estimating the amount of memory needed
+
+    (see the build output of other circuits on Circuitscan for examples)
+6. You are now ready to invoke the Circuitscan CLI:
+
+    .. code-block:: console
+
+        circuitscan verify:circom \
+          circuit/multiplier.circom \
+          sepolia \
+          0x9999999999999999999999999999999999999999 \
+          -k https:/example.com/multiplier.zkey \
+          -v v2.1.9 \
+          -s 0.7.4 \
+          -i 64
+
 Compile a Circom circuit and deploy its circuit verifier on chain
 -----------------------------------------------------------------
 
@@ -59,6 +88,36 @@ Alternatively, the CLI can be used to compile and deploy the circuit verifier di
       -a, --api-key <apiKey>                  Specify your API Key as a command line argument
       -b, --browser-wallet                    Send transaction in browser instead of by passing private key env var (overrides chainId argument)
       -h, --help                            display help for command
+
+Deployment Checklist
+^^^^^^^^^^^^^^^^^^^^
+
+1. Locate the Circom source file with the main component
+
+    (e.g. ``circuit/multiplier.circom``)
+2. If the verifier uses Groth16, locate the proving key (final zkey) and, if necessary, upload it to a server where it can be accessed using an HTTPS URL.
+
+    (e.g. ``https://example.com/multiplier.zkey``)
+
+    If this is omitted for Groth16 verifiers, a random entropy value will be used.
+
+    Specifying this is not necessary for Plonk or Fflonk verifiers.
+4. Select the Circom and SnarkJS versions to use to compile the circuit and generate the verifier contract
+5. Select an instance size by estimating the amount of memory needed
+
+    (see the build output of other circuits on Circuitscan for examples)
+6. You are now ready to invoke the Circuitscan CLI.
+
+    The ``-b`` option is recommended for ease-of-use.
+
+    .. code-block:: console
+
+        circuitscan deploy:circom \
+          circuit/multiplier.circom \
+          -b \
+          -v v2.1.9 \
+          -s 0.7.4 \
+          -i 16
 
 Verify a Circom Groth16 multi-verifier already deployed on chain
 ----------------------------------------------------------------
@@ -279,6 +338,8 @@ Additional Configuration
 
 A few more circuit configuration options are available if passed using a ``circomkit.json`` file.
 
+The CLI will search parent directories for this file. If found, the CLI will consider that directory as the environment root, searching for dependencies from that directory.
+
 Learn more about `Circomkit <https://github.com/erhant/circomkit>`_...
 
 ``optimization``
@@ -290,6 +351,13 @@ Set the Circom compiler optimization level. (Default: 2)
 ^^^^^^^^^^^
 
 Specify an array of strings denoting other directories to search for included files.
+
+If your circuit's dependencies are not found by the CLI, create a ``circomkit.json`` file in the directory that contains your ``node_modules`` directory.
+
+.. code-block:: console
+
+    echo '{"include":["node_modules"]}' >> circomkit.json
+
 
 ``prime``
 ^^^^^^^^^
