@@ -27,9 +27,3 @@ The proof and public signals will be output on screen for your own use.
 
    If the contract is not a simple verifier output from the template, you may have to copy the proof data displayed on screen into a different function exposed by the contract.
 
-.. note::
-
-   Proof generation for Noir circuits is still under construction!
-
-   As a workaround, download the build zip and generate proofs on your local machine using the `Noir command line tools <https://noir-lang.org/docs/getting_started/hello_noir/#proving-backend>`_.
-
