@@ -15,7 +15,12 @@ To use the Circuitscan CLI, first install it using npm:
 
     $ npm install -g circuitscan
 
+Login
+-----
+
 Generate an API key by connecting your browser wallet at the `manage API key <https://circuitscan.org/manage-api-key>`_ page. No transactions are required and this is completely free to use.
+
+Use the login command: ``circuitscan login <apiKey>`` to save your generated API Key for later use.
 
 API Key can be specified any of the following ways in order of precedence:
 
