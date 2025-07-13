@@ -258,6 +258,8 @@ Pass the version of the Circom compiler to use.
 
 Allowed values:
 
+* ``v2.2.2``
+* ``v2.2.1``
 * ``v2.2.0``
 * ``v2.1.9``
 * ``v2.1.8`` (Default)
@@ -279,6 +281,7 @@ Pass the version of SnarkJS to use.
 
 Allowed values:
 
+* ``0.7.5``
 * ``0.7.4`` (Default)
 * ``0.7.3``
 * ``0.7.2``
@@ -293,7 +296,7 @@ Compilations are performed on a cloud machine with the specified number of GB of
 
 Please use the smallest value necessary to compile your circuits. Abuse of large instances will result in your account being banned.
 
-Allowed values: 4, 8, 16, 32, 64, 128, 256, 384, 512
+Allowed values: 4, 8, 16, 32, 64, 128, 256, 384, 512, 768, 1536
 
 If ommitted, the smallest instance size is used: 4 GB.
 
@@ -370,6 +373,16 @@ Other primes require specifying a PTAU file that matches that prime.
 ^^^^^^^^^^^^
 
 The protocol may also be specified here instead of by CLI argument.
+
+``cWitness``
+^^^^^^^^^^^^
+
+Specify ``true`` to output C witness generator ``circom --c``
+
+``wasmWitness``
+^^^^^^^^^^^^^^^
+
+Specify ``false`` to skip outputting WASM witness generator ``circom --wasm`` (output by default)
 
 Verification Errors
 -------------------

@@ -7,7 +7,7 @@ Circuit verifier Solidity contracts verified on the block explorer are opaque to
 
 Verified contracts on the block explorer also come into play when a dapp's frontend becomes unusable. For a zk app with a missing frontend, Circuitscan provides a tool for generating proofs so that users never have to worry about being locked out.
 
-Application developers can also use Circuitscan to compile circuits larger than their local machine can handle. Deploy a verifier for your circuit source code on chain in one command on a virtual machine with up to 512 GB of memory and then download the build artifact zip to start generating proofs in your application.
+Application developers can also use Circuitscan to compile circuits larger than their local machine can handle. Deploy a verifier for your circuit source code on chain in one command on a virtual machine with up to 1536 GB of memory and then download the build artifact zip to start generating proofs in your application.
 
 Check out the :doc:`usage` section for further information about submitting your circuit verifiers, including
 how to perform the :ref:`installation` of the CLI.
